@@ -5,14 +5,19 @@ import styles from './nearbyJobs.style'
 import { COLORS } from '../../../constants'
 import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard'
 import useFetch from '../../../hook/useFetch'
+import { mockJobs } from '../../../mock/mock'
 
 const NearbyJobs = () => {
   const router = useRouter()
 
-  const { data, isLoading, error } = useFetch('search', {
-    query: 'React developer',
-    num_pages: 1,
-  })
+  const { data, isLoading, error } = useFetch(
+    'search',
+    {
+      query: 'React developer',
+      num_pages: 1,
+    },
+    mockJobs
+  )
 
   return (
     <View style={styles.container}>

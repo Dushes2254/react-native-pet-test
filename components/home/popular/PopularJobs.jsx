@@ -6,14 +6,19 @@ import styles from './popularJobs.style'
 import { COLORS, SIZES } from '../../../constants'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import useFetch from '../../../hook/useFetch'
+import { mockJobs } from '../../../mock/mock'
 
 const PopularJobs = () => {
   const router = useRouter()
 
-  const { data, isLoading, error } = useFetch('search', {
-    query: 'React developer',
-    num_pages: 1,
-  })
+  const { data, isLoading, error } = useFetch(
+    'search',
+    {
+      query: 'React developer',
+      num_pages: 1,
+    },
+    mockJobs
+  )
 
   return (
     <View style={styles.container}>
